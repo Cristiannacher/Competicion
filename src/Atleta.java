@@ -46,7 +46,11 @@ public class Atleta {
     }
 
     public boolean estaActivo(LocalDate fecha) {
-        return (fecha.isAfter(inicioCarrera) && fecha.isBefore(finCarrera));
+        if (inicioCarrera == null)
+            return false;
+
+        LocalDate fechaFin = finCarrera == null ? LocalDate.now() : finCarrera;
+        return (fecha.isAfter(inicioCarrera) && fecha.isBefore(fechaFin));
     }
 
     public int diasActivo() {
