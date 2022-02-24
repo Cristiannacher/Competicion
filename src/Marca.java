@@ -1,14 +1,23 @@
 public class Marca {
-    public Prueba prueba;
-    public Atleta deportista;
+    private Prueba prueba;
+    private Atleta deportista;
     private int resultado;
 
-    @Override
-    public String toString() {
-        return "Marca{" +
-                "prueba=" + prueba +
-                ", deportista=" + deportista +
-                ", resultado=" + resultado +
-                '}';
+    public Marca (Prueba prueba, Atleta deportista, int resultado ){
+        this.prueba = prueba;
+        this.deportista =  deportista;
+        this.resultado = resultado;
+    }
+
+    public Prueba getPrueba() {
+        return prueba;
+    }
+
+    public Atleta getDeportista() {
+        return deportista;
+    }
+
+    public int getResultado() {
+        return resultado;
     }
 }

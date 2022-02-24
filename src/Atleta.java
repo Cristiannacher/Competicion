@@ -18,6 +18,10 @@ public class Atleta {
 
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public int edad() {
         Period vida = Period.between(nacimiento, LocalDate.now());
         return vida.getYears();
