@@ -7,8 +7,7 @@ public class Prueba {
     }
 
     public boolean es (Prueba prueba){
-        return (nombre.equals(prueba.nombre));
+        return (this.nombre.equals(prueba.nombre));
     }
-
 
 }

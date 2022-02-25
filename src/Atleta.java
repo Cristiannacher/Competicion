@@ -46,19 +46,19 @@ public class Atleta {
     }
 
     public boolean estaActivo(LocalDate fecha) {
-        if (inicioCarrera == null)
+        if(inicioCarrera == null)
             return false;
-
         LocalDate fechaFin = finCarrera == null ? LocalDate.now() : finCarrera;
         return (fecha.isAfter(inicioCarrera) && fecha.isBefore(fechaFin));
     }
 
     public int diasActivo() {
         int dias = 0;
-        if (finCarrera != null) {
+        if (finCarrera != null && inicioCarrera != null) {
             dias = inicioCarrera.until(finCarrera).getDays();
-        } else dias = inicioCarrera.until(LocalDate.now()).getDays();
-
+            if (finCarrera == null)
+                dias = inicioCarrera.until(LocalDate.now()).getDays();
+        }
         return dias;
     }
 }

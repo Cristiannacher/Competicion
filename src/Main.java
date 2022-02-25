@@ -3,6 +3,9 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
+        // He hecho el main solo para comprobar que todo sea funcional
+        // no para que tenga sentido
+
         Atleta atleta1 = new Atleta("Pedro", Atleta.Genero.Masculino, LocalDate.of(1980, 5, 12));
         Atleta atleta2 = new Atleta("Juan", Atleta.Genero.Masculino, LocalDate.of(1992, 6, 24));
         Atleta atleta3 = new Atleta("Maria", Atleta.Genero.Femenino, LocalDate.of(1997, 2, 17));
@@ -15,11 +18,13 @@ public class Main {
 
         Prueba natacion = new Prueba("Natacion");
 
-        Campeonato campeonatoNatacion = new Campeonato(natacion);
+        Campeonato campeonatoNatacion = new Campeonato(natacion, LocalDate.of(2022, 1, 24), LocalDate.of(2022, 2, 15));
         Marca marca = new Marca(natacion, atleta3, 5);
-        Marca marca2 = new Marca(natacion, atleta4, 5);
+        Marca marca2 = new Marca(natacion, atleta4, 3);
+        Marca marca3 = new Marca(natacion,atleta3,2);
+        Marca marca4 = new Marca(natacion,atleta3,1);
 
-        if(campeonatoNatacion.marcaRealizada(marca))
+        if (campeonatoNatacion.marcaRealizada(marca))
             System.out.println("Se ha podido añadir la marca");
         else System.out.println("No se ah podido añadir la marca");
 
@@ -27,19 +32,17 @@ public class Main {
             System.out.println("Se ha podido inscribir el atleta");
         else System.out.println("No se ha podido inscribir el atleta");
 
-        if(campeonatoNatacion.finalizar())
+        if (campeonatoNatacion.finalizar())
             System.out.println("Se ha finalizado el campeonato");
         else System.out.println("No se ha podido finalizar el campeonato");
 
-        if(campeonatoNatacion.iniciar())
+        if (campeonatoNatacion.iniciar())
             System.out.println("Se ha iniciado el campeonato");
         else System.out.println("No se ha podido iniciar el campeonato");
 
-
-        if(campeonatoNatacion.iniciar())
+        if (campeonatoNatacion.iniciar())
             System.out.println("Se ha iniciado el campeonato");
         else System.out.println("No se ha podido iniciar el campeonato");
-
 
         if (campeonatoNatacion.inscribeAtleta(atleta1))
             System.out.println("Se ha podido inscribir el atleta");
@@ -53,20 +56,32 @@ public class Main {
             System.out.println("Se ha podido inscribir el atleta");
         else System.out.println("No se ha podido inscribir el atleta");
 
-        if(campeonatoNatacion.marcaRealizada(marca))
+        if (campeonatoNatacion.inscribeAtleta(atleta4))
+            System.out.println("Se ha podido inscribir el atleta");
+        else System.out.println("No se ha podido inscribir el atleta");
+
+        if (campeonatoNatacion.marcaRealizada(marca))
+            System.out.println("Se ha podido añadir la marca");
+        else System.out.println("No se ah podido añadir la marca");
+
+        if (campeonatoNatacion.marcaRealizada(marca3))
             System.out.println("Se ah podido añadir la marca");
         else System.out.println("No se ah podido añadir la marca");
 
-        if(campeonatoNatacion.marcaRealizada(marca2))
+        if (campeonatoNatacion.marcaRealizada(marca4))
             System.out.println("Se ah podido añadir la marca");
         else System.out.println("No se ah podido añadir la marca");
 
-        if(campeonatoNatacion.finalizar())
+        if (campeonatoNatacion.marcaRealizada(marca2))
+            System.out.println("Se ah podido añadir la marca");
+        else System.out.println("No se ah podido añadir la marca");
+
+        if (campeonatoNatacion.finalizar())
             System.out.println("Se ha finalizado el campeonato");
         else System.out.println("No se ha podido finalizar el campeonato");
 
-        System.out.println("La mejor marca es " + campeonatoNatacion.mejorMarca().getResultado());
-
+        if(!campeonatoNatacion.getMarcas().isEmpty())
+            System.out.println("La mejor marca es "+ campeonatoNatacion.mejorMarca().getResultado());
 
     }
 }
